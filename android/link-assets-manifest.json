@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/Assets/fonts/DIN-Next-LT-W23-Bold.ttf",
+      "sha1": "22aa94440106530be1942a96fd1f59a7d829510e"
+    },
+    {
+      "path": "src/Assets/fonts/RB-Light.ttf",
+      "sha1": "d55f680ffb6e9874195be37198309a5ce7dcd796"
+    },
+    {
+      "path": "src/Assets/fonts/RB-Regular.ttf",
+      "sha1": "03998d3f47ed252cdec405bc4860a417e746c2cd"
+    },
+    {
+      "path": "src/Assets/fonts/SST-Arabic-Roman.ttf",
+      "sha1": "d1a7ebbbd49fc85f224b06db5085c9fcf15d7409"
+    }
+  ]
+}

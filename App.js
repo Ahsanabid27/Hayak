@@ -1,11 +1,19 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {I18nManager} from 'react-native';
+import {Provider} from 'react-redux';
+import AppNavigation from './src/Navigation';
+import {Store} from './src/Store/Store';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import './src/i18next';
 
 const App = () => {
+  I18nManager.forceRTL(false);
   return (
-    <View>
-      <Text>Hello World</Text>
-    </View>
+    <Provider store={Store}>
+      <SafeAreaProvider>
+        <AppNavigation />
+      </SafeAreaProvider>
+    </Provider>
   );
 };
 

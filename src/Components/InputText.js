@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {Colors} from '../Config/Colors';
-import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import TextComponent from './TextComponent';
 const InputText = props => {
@@ -19,7 +19,6 @@ const InputText = props => {
         {
           flexDirection: 'row',
           paddingHorizontal: 5,
-          backgroundColor: ' rgba(118, 118, 128, 0.12)',
         },
       ]}>
       <View
@@ -28,32 +27,29 @@ const InputText = props => {
           borderBottomLeftRadius: 9,
           borderTopLeftRadius: 9,
         }}>
-        <EvilIcons name={props.iconname} color={props.iconColor} size={30} />
+        <AntDesign name={props.iconname} color={props.iconColor} size={24} />
       </View>
       <View
         style={{
-          width: '90%',
-          flexDirection: 'row',
+          width: '85%',
+          // flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          // justifyContent: 'space-between',
+          backgroundColor: Colors.White,
+          opacity: 0.7,
         }}>
         <TextInput
           style={[styles.input, {...props?.style}]}
-          placeholderTextColor={Colors.Placeholder}
-          textAlign={I18nManager.isRTL ? 'right' : 'left'}
+          placeholderTextColor={
+            props?.placeholderColor
+              ? props?.placeholderColor
+              : Colors.Placeholder
+          }
+          textAlign={'center'}
           value={props?.value}
           onChangeText={props?.onChangeText}
           {...props}
         />
-        {props?.cross ? (
-          <TouchableOpacity onPress={props.onPressCross}>
-            <Ionicons
-              name={'ios-close-circle-outline'}
-              size={24}
-              color={'#B1B1B1'}
-            />
-          </TouchableOpacity>
-        ) : null}
       </View>
     </View>
   ) : (
@@ -63,13 +59,12 @@ const InputText = props => {
           styles.inputContainer,
           {
             ...props.containterStyle,
-            borderColor: props.TypeColor ? props.TypeColor : Colors.Light_gray,
           },
         ]}>
         <TextInput
           style={[styles.input, {...props?.style}]}
           placeholderTextColor={Colors.Placeholder}
-          textAlign={I18nManager.isRTL ? 'right' : 'left'}
+          // textAlign={I18nManager.isRTL ? 'right' : 'left'}
           {...props}
         />
       </View>
@@ -87,12 +82,14 @@ export default InputText;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    borderColor: Colors.Light_gray,
-    backgroundColor: Colors.Light_gray,
-    borderWidth: 1,
+    borderColor: '#05357D',
+    backgroundColor: Colors.White,
+    opacity: 0.7,
+    borderWidth: 2,
     borderRadius: 10,
-    marginVertical: 10,
+    marginVertical: 5,
     paddingHorizontal: 10,
+    height: 45,
   },
   text: {
     color: Colors.Light_gray,
@@ -101,8 +98,8 @@ const styles = StyleSheet.create({
   },
   input: {
     color: '#000',
-    minHeight: 50,
-    fontSize: 16,
-    fontFamily: 'OpenSans-Medium',
+    minHeight: 45,
+    fontSize: 15,
+    fontFamily: 'RB-Regular',
   },
 });

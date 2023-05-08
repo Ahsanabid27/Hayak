@@ -5,11 +5,29 @@ import {Colors} from '../Config/Colors';
 
 const Button = props => {
   return (
-    <TouchableOpacity style={[styles.btn, props?.styles]} {...props}>
+    <TouchableOpacity
+      style={[
+        styles.btn,
+        {
+          backgroundColor:
+            props?.theme == 'White' ? Colors.White : Colors.light_blue,
+          ...props?.styles,
+        },
+      ]}
+      {...props}>
       {props.icon ? (
         {...props.icon}
       ) : (
-        <TextComponent style={[styles.text ,props.textStyle]} text={props?.text} />
+        <TextComponent
+          style={[
+            styles.text,
+            {
+              color: props?.theme == 'White' ? Colors.Dark_Blue : Colors.White,
+              ...props.textStyle,
+            },
+          ]}
+          text={props?.text}
+        />
       )}
     </TouchableOpacity>
   );
@@ -19,16 +37,18 @@ export default Button;
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: Colors.btn_Color,
-    // borderRadius: 5,
-    height: 55,
+    backgroundColor: Colors.light_blue,
+    borderRadius: 10,
+    height: 45,
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
+    marginVertical: 5,
   },
   text: {
-    fontFamily: 'OpenSans-Medium',
+    fontFamily: 'RB-Regular',
     fontSize: 18,
-    color:Colors.White
+    color: Colors.White,
+    fontWeight: 800,
   },
 });

@@ -17,8 +17,8 @@ export default TextComponent;
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: 'OpenSans-Medium',
+    fontFamily: 'RB-Regular',
     fontSize: 18,
-    color: Colors.textColor,
+    color: Colors.White,
   },
 });

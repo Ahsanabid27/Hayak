@@ -10,11 +10,13 @@ const Header = props => {
   return (
     <View style={styles.header}>
       {props?.leftIcon ? (
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Ionicons name={'chevron-back'} size={24} color={Colors.Blue} />
+        <TouchableOpacity
+          style={{width: 25, height: 25}}
+          onPress={() => navigation.goBack()}>
+          <Ionicons name={'chevron-back'} size={24} color={Colors.White} />
         </TouchableOpacity>
       ) : (
-       <View style={{width:24}}/>
+        <View style={{width: 24}} />
       )}
       <TextComponent text={props?.title} style={styles.heading} />
       <View>
@@ -23,7 +25,7 @@ const Header = props => {
             {props?.IconRight}
           </TouchableOpacity>
         ) : (
-          <View style={{width:24}}/>
+          <View style={{width: 24}} />
         )}
       </View>
     </View>
@@ -36,12 +38,9 @@ const styles = StyleSheet.create({
   header: {
     height: 70,
     flexDirection: 'row',
-    backgroundColor: '#EEEEEE',
-    borderBottomColor: Colors.Placeholder,
-    borderBottomWidth: 0.2,
     paddingTop: 15,
     justifyContent: 'space-between',
-    paddingHorizontal:10,
+    paddingHorizontal: 32,
     alignItems: 'center',
   },
 

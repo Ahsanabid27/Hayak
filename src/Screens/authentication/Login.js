@@ -1,4 +1,10 @@
-import {StyleSheet, Image, View, TouchableOpacity} from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  View,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import React from 'react';
 import {Colors} from '../../Config/Colors';
 import {Header, TextComponent, InputText, Button} from '../../Components';
@@ -46,38 +52,44 @@ const Login = () => {
           center={[90, 350]}
           radius={300}
         />
-
-        <InputText
-          placeholder={'Email Address'}
-          textAlign={'center'}
-          onChangeText={val => console.log(val)}
-        />
-        <InputText
-          placeholder={'Password'}
-          textAlign={'center'}
-          onChangeText={val => console.log(val)}
-        />
-        <Button
-          text={'Login'}
-          styles={{backgroundColor: Colors.Dark_Blue, marginTop: 10}}
-          onPress={() => navigation.navigate('Verification')}
-        />
-        <TouchableOpacity>
-          <TextComponent text={'Forget Password ?'} style={styles.forgot} />
-        </TouchableOpacity>
-
-        <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-          <TextComponent
-            text={'By clicking Login you agree to Hayak’s '}
-            style={styles.terms}
-          />
-          <TouchableOpacity>
-            <TextComponent
-              text={'Terms and Conditions'}
-              style={[styles.terms, {color: Colors.light_blue}]}
+        <ScrollView
+          keyboardShouldPersistTaps={'handled'}
+          showsVerticalScrollIndicator={false}>
+          <View style={{marginTop: 100}}>
+            <InputText
+              placeholder={'Email Address'}
+              textAlign={'center'}
+              onChangeText={val => console.log(val)}
             />
-          </TouchableOpacity>
-        </View>
+            <InputText
+              placeholder={'Password'}
+              textAlign={'center'}
+              onChangeText={val => console.log(val)}
+            />
+            <Button
+              text={'Login'}
+              styles={{backgroundColor: Colors.Dark_Blue, marginTop: 10}}
+              onPress={() => navigation.navigate('Verification')}
+            />
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ForgetPassword')}>
+              <TextComponent text={'Forget Password ?'} style={styles.forgot} />
+            </TouchableOpacity>
+
+            <View style={{flexDirection: 'row', alignSelf: 'center'}}>
+              <TextComponent
+                text={'By clicking Login you agree to Hayak’s '}
+                style={styles.terms}
+              />
+              <TouchableOpacity>
+                <TextComponent
+                  text={'Terms and Conditions'}
+                  style={[styles.terms, {color: Colors.light_blue}]}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+        </ScrollView>
       </View>
     </View>
   );

@@ -8,6 +8,7 @@ import Signup from '../../Screens/authentication/Signup';
 import EmailVerify from '../../Screens/authentication/EmailVerify';
 import CreatePassword from '../../Screens/authentication/CreatePassword';
 import AdditionalInfo from '../../Screens/authentication/AdditionalInfo';
+import ForgetPassword from '../../Screens/authentication/ForgetPassword';
 
 const AuthStack = () => {
   const AuthStack = createNativeStackNavigator();
@@ -17,6 +18,7 @@ const AuthStack = () => {
       screenOptions={{headerShown: false}}>
       <AuthStack.Screen name={'GetStarted'} component={GetStarted} />
       <AuthStack.Screen name={'Login'} component={Login} />
+      <AuthStack.Screen name={'ForgetPassword'} component={ForgetPassword} />
       <AuthStack.Screen name={'Verification'} component={Verification} />
       <AuthStack.Screen name={'Signup'} component={Signup} />
       <AuthStack.Screen name={'CreatePassword'} component={CreatePassword} />

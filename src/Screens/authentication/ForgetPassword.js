@@ -3,12 +3,9 @@ import React from 'react';
 import RadialGradient from 'react-native-radial-gradient';
 import {Button, InputText, TextComponent} from '../../Components';
 import {Colors} from '../../Config/Colors';
-import {Verify} from '../../Components/Assets';
-import {useDispatch} from 'react-redux';
-import {login} from '../../Store/Actions/AuthAction';
+import {Verify, forget} from '../../Components/Assets';
 
-const Verification = () => {
-  const dispatch = useDispatch();
+const ForgetPassword = () => {
   return (
     <View
       style={{
@@ -31,37 +28,27 @@ const Verification = () => {
         radius={580}
       />
       <Image
-        source={Verify}
-        style={{width: 75, height: 55, alignSelf: 'center'}}
+        source={forget}
+        style={{width: 49, height: 55, alignSelf: 'center'}}
         resizeMode={'stretch'}
       />
-      <TextComponent text={'Verify Password'} style={styles.title} />
+      <TextComponent text={'Forget Password'} style={styles.title} />
       <TextComponent
         text={
-          'We have sent you a verification code to your\nregistered mobile that end with ***54'
+          'We will receive a link in your registered email address \nto reset your password'
         }
         style={styles.des}
       />
       <View style={{paddingHorizontal: 31, marginTop: 50}}>
         <InputText
-          iconname={'check'}
-          iconColor={Colors.Dark_Blue}
-          placeholderColor={Colors.Dark_Blue}
-          sidebar={true}
-          style={{fontSize: 20, color: Colors.Dark_Blue}}
-          maxLength={4}
-          placeholder={'- - - -'}
+          placeholder={'Email Address'}
           textAlign={'center'}
           onChangeText={val => console.log(val)}
         />
         <Button
-          text={'Verify'}
+          text={'Reset Password'}
           styles={{backgroundColor: Colors.Dark_Blue, marginTop: 10}}
-          onPress={() => dispatch(login(true))}
-        />
-        <TextComponent
-          text={'Resend verification code 00:30'}
-          style={styles.resent}
+          // onPress={() => navigation.navigate('Verification')}
         />
       </View>
       <RadialGradient
@@ -82,7 +69,7 @@ const Verification = () => {
   );
 };
 
-export default Verification;
+export default ForgetPassword;
 
 const styles = StyleSheet.create({
   title: {

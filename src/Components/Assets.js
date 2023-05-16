@@ -12,6 +12,10 @@ import account from '../Assets/images/account.png';
 import forget from '../Assets/images/forget.png';
 import alert from '../Assets/images/alert.png';
 import image from '../Assets/images/image.png';
+import wallet from '../Assets/images/wallet.png';
+import down from '../Assets/images/down.png';
+import up from '../Assets/images/up.png';
+
 
 export {
   background,
@@ -27,5 +31,8 @@ export {
   account,
   forget,
   alert,
-  image
+  image,
+  wallet,
+  down,
+  up
 };

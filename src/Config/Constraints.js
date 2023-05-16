@@ -8,6 +8,6 @@ export const constraints = {
     },
     shadowOpacity: 0.5,
     shadowRadius: 1.41,
-    elevation: 5,
+    elevation: 1,
   },
 };

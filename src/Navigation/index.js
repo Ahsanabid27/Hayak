@@ -38,7 +38,7 @@ const AppNavigation = () => {
             alignItems: 'center',
           }}>
           <Grid size={48} color={Colors.White} />
-          <Text style={{color: '#fff', margin: 15}}>Loading please wait..</Text>
+          <Text style={{color: '#fff', margin: 15}}>please wait</Text>
         </View>
       </Modal>
 

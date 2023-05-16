@@ -1,4 +1,4 @@
-import {StyleSheet, Image, View} from 'react-native';
+import {StyleSheet, Image, View, Text} from 'react-native';
 import React from 'react';
 import RadialGradient from 'react-native-radial-gradient';
 import {Button, InputText, TextComponent} from '../../Components';
@@ -8,7 +8,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import SelectDropdown from 'react-native-select-dropdown';
 
 const AdditionalInfo = () => {
-  const array = ['asda', 'asd'];
+  const array = ['sample', 'sample2'];
   return (
     <View
       style={{
@@ -66,7 +66,7 @@ const AdditionalInfo = () => {
           // }}
           buttonTextAfterSelection={(selectedItem, index) => {
             return (
-              <Text style={{color: Colors?.Blue, justifyContent: 'flex-start'}}>
+              <Text style={{color: Colors.Blue, justifyContent: 'flex-start'}}>
                 {selectedItem}
               </Text>
             );

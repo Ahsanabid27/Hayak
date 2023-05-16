@@ -131,6 +131,6 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 30,
     paddingHorizontal: 31,
     justifyContent: 'flex-end',
-    paddingBottom: 50,
+    // paddingBottom: 50,
   },
 });

@@ -13,7 +13,11 @@ const Header = props => {
         <TouchableOpacity
           style={{width: 25, height: 25}}
           onPress={() => navigation.goBack()}>
-          <Ionicons name={'chevron-back'} size={24} color={Colors.White} />
+          <Ionicons
+            name={'chevron-back'}
+            size={24}
+            color={props?.blue ? Colors.light_blue : Colors.White}
+          />
         </TouchableOpacity>
       ) : (
         <View style={{width: 24}} />

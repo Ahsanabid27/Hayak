@@ -13,6 +13,7 @@ import {Button, TextComponent} from '../../Components';
 import {LineChart, ProgressChart} from 'react-native-chart-kit';
 import {image, investment} from '../../Components/Assets';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {constraints} from '../../Config/Constraints';
 
 const Investment = () => {
   const screenWidth = Dimensions.get('window').width;
@@ -196,7 +197,7 @@ const Investment = () => {
         </View>
       </View>
 
-      <TouchableOpacity style={styles.completeAccount}>
+      <TouchableOpacity style={styles.cardContainer}>
         <Image
           source={image}
           style={{width: 72, height: 72, borderRadius: 10}}
@@ -223,7 +224,7 @@ const Investment = () => {
         </View>
         <AntDesign name={'right'} size={20} color={Colors.black} />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.completeAccount}>
+      <TouchableOpacity style={styles.cardContainer}>
         <Image
           source={image}
           style={{width: 72, height: 72, borderRadius: 10}}
@@ -250,7 +251,7 @@ const Investment = () => {
         </View>
         <AntDesign name={'right'} size={20} color={Colors.black} />
       </TouchableOpacity>
-      <TouchableOpacity style={styles.completeAccount}>
+      <TouchableOpacity style={styles.cardContainer}>
         <Image
           source={image}
           style={{width: 72, height: 72, borderRadius: 10}}
@@ -340,13 +341,14 @@ const styles = StyleSheet.create({
     height: 100,
     borderRadius: 9,
     padding: 15,
+    ...constraints.myShadow,
   },
   tag: {
     flexDirection: 'row',
     alignItems: 'center',
     // justifyContent: 'center',
   },
-  completeAccount: {
+  cardContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -357,5 +359,6 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
     backgroundColor: Colors.White,
     marginVertical: 5,
+    ...constraints.myShadow,
   },
 });

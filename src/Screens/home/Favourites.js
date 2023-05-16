@@ -9,34 +9,18 @@ import {
 import React, {useState, useEffect} from 'react';
 import {Colors} from '../../Config/Colors';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import Fontisto from 'react-native-vector-icons/Fontisto';
 import Feather from 'react-native-vector-icons/Feather';
 
-import {Button, TextComponent} from '../../Components';
+import {Button, Header, TextComponent} from '../../Components';
 import {alert, image} from '../../Components/Assets';
 import {ProgressBar, MD3Colors} from 'react-native-paper';
-import {useNavigation} from '@react-navigation/native';
 
-const Home = () => {
-  const navigation = useNavigation();
-
+const Favourites = () => {
   const data = [1, 2, 3, 4, 5];
-
-  const [ishide, setishide] = useState(false);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setishide(false);
-  //   }, 3000);
-  // }, []);
 
   const renderItem = ({item, index}) => {
     return (
-      <View
-        style={[
-          styles.card,
-          {marginBottom: data.length - 1 == index ? 85 : 10},
-        ]}>
+      <View style={styles.card}>
         <ImageBackground
           source={image}
           style={{width: '100%', height: 220}}
@@ -58,7 +42,7 @@ const Home = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
               }}>
-              <AntDesign name={'hearto'} size={22} color={'#D52900'} />
+              <AntDesign name={'heart'} size={18} color={'#D52900'} />
             </TouchableOpacity>
             <View style={{flexDirection: 'row'}}>
               <View style={styles.tag}>
@@ -75,15 +59,15 @@ const Home = () => {
               </View>
               <View style={styles.tag}>
                 {/* <Image
-                source={user?.isMale ? malesymbol : femalesymbol}
-                style={{
-                  width: 20,
-                  height: 15,
-                  marginRight: 2,
-                  tintColor: Colors.White,
-                }}
-                resizeMode={'contain'}
-              /> */}
+                  source={user?.isMale ? malesymbol : femalesymbol}
+                  style={{
+                    width: 20,
+                    height: 15,
+                    marginRight: 2,
+                    tintColor: Colors.White,
+                  }}
+                  resizeMode={'contain'}
+                /> */}
                 <TextComponent
                   text={'Riyadh'}
                   style={{fontSize: 11, color: Colors.black}}
@@ -246,99 +230,24 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.bottom}>
-        <View style={styles.header}>
-          <TouchableOpacity onPress={() => navigation.navigate('Favourites')}>
-            <AntDesign name={'hearto'} size={22} color={'#D52900'} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => navigation.navigate('Notifications')}>
-            <Fontisto name={'bell'} size={22} color={Colors.Dark_Blue} />
-          </TouchableOpacity>
-        </View>
-        <TextComponent text={'Properties'} style={styles.title} />
-        {!ishide ? (
-          <TouchableOpacity
-            style={styles.completeAccount}
-            onPress={() => setishide(true)}>
-            <Image source={alert} style={{width: 48, height: 48}} />
-            <View style={{flex: 0.9}}>
-              <TextComponent
-                text={'Complete your account'}
-                style={[
-                  styles.title,
-                  {fontSize: 13, textAlign: 'left', marginBottom: -5},
-                ]}
-              />
-              <TextComponent
-                text={
-                  'Please complete your file to start investing in properties'
-                }
-                style={[
-                  styles.title,
-                  {
-                    fontSize: 10,
-                    textAlign: 'left',
-                    color: Colors.gray,
-                    marginVertical: 5,
-                  },
-                ]}
-              />
-              <View style={{width: 138}}>
-                <ProgressBar
-                  // animatedValue={item.progress / 100}
-                  progress={0.6}
-                  color={Colors.Dark_Blue}
-                  style={{
-                    height: 6,
-                    borderRadius: 15,
-                    backgroundColor: '#E0E0E0',
-                  }}
-                />
-              </View>
-            </View>
-            <AntDesign name={'right'} size={20} color={Colors.Dark_Blue} />
-          </TouchableOpacity>
-        ) : null}
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop: 15,
-          }}>
-          <View style={{flex: 0.48}}>
-            <Button
-              text={'Available'}
-              theme={'Blue'}
-              styles={{backgroundColor: Colors.Dark_Blue, height: 40}}
-              // onPress={() => navigation.navigate('Signup')}
-            />
-          </View>
-          <View style={{flex: 0.48}}>
-            <Button
-              text={'Sold'}
-              theme={'blue'}
-              styles={{height: 40}}
-              // onPress={() => navigation.navigate('Login')}
-            />
-          </View>
-        </View>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          style={{flex: 1, marginTop: 5}}
-          data={data}
-          renderItem={renderItem}
-        />
-      </View>
+      <Header leftIcon={true} blue={true} />
+      <TextComponent text={'Favorites'} style={styles.title} />
+      <FlatList
+        showsVerticalScrollIndicator={false}
+        style={{flex: 1, marginTop: 10, paddingHorizontal: 15}}
+        data={data}
+        renderItem={renderItem}
+      />
     </View>
   );
 };
 
-export default Home;
+export default Favourites;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.Dark_Blue,
+    backgroundColor: Colors.bg,
   },
   bottom: {
     flex: 1,
@@ -361,6 +270,7 @@ const styles = StyleSheet.create({
     color: Colors.Dark_Blue,
     fontWeight: 800,
     textAlign: 'center',
+    marginBottom: 10,
   },
   completeAccount: {
     flexDirection: 'row',

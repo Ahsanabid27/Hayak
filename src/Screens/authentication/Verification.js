@@ -6,9 +6,17 @@ import {Colors} from '../../Config/Colors';
 import {Verify} from '../../Components/Assets';
 import {useDispatch} from 'react-redux';
 import {login} from '../../Store/Actions/AuthAction';
+import {hideLoading, showLoading} from '../../Store/Actions/GeneralActions';
 
 const Verification = () => {
   const dispatch = useDispatch();
+  const logins = () => {
+    dispatch(showLoading());
+    setTimeout(() => {
+      dispatch(hideLoading());
+      dispatch(login(true));
+    }, 1000);
+  };
   return (
     <View
       style={{
@@ -57,7 +65,7 @@ const Verification = () => {
         <Button
           text={'Verify'}
           styles={{backgroundColor: Colors.Dark_Blue, marginTop: 10}}
-          onPress={() => dispatch(login(true))}
+          onPress={() => logins()}
         />
         <TextComponent
           text={'Resend verification code 00:30'}

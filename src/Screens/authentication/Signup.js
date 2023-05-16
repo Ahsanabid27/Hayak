@@ -59,34 +59,38 @@ const Signup = () => {
           center={[120, 380]}
           radius={350}
         />
-        <TextComponent
-          text={'Enter your name and details'}
-          style={styles.label}
-        />
-        <TextComponent
-          text={'We will sent you email to create your account'}
-          style={styles.terms}
-        />
-        <InputText
-          placeholder={'Your Full Name'}
-          textAlign={'center'}
-          onChangeText={val => console.log(val)}
-        />
-        <InputText
-          placeholder={'Email Address'}
-          textAlign={'center'}
-          onChangeText={val => console.log(val)}
-        />
-        <InputText
-          placeholder={'National ID'}
-          textAlign={'center'}
-          onChangeText={val => console.log(val)}
-        />
-        <Button
-          text={'Lets Go !'}
-          styles={{backgroundColor: Colors.Dark_Blue, marginTop: 10}}
-          onPress={() => navigation.navigate('CreatePassword')}
-        />
+        <ScrollView
+          keyboardShouldPersistTaps={'handled'}
+          showsVerticalScrollIndicator={false}>
+          <TextComponent
+            text={'Enter your name and details'}
+            style={[styles.label, {marginTop: '20%'}]}
+          />
+          <TextComponent
+            text={'We will sent you email to create your account'}
+            style={styles.terms}
+          />
+          <InputText
+            placeholder={'Your Full Name'}
+            textAlign={'center'}
+            onChangeText={val => console.log(val)}
+          />
+          <InputText
+            placeholder={'Email Address'}
+            textAlign={'center'}
+            onChangeText={val => console.log(val)}
+          />
+          <InputText
+            placeholder={'National ID'}
+            textAlign={'center'}
+            onChangeText={val => console.log(val)}
+          />
+          <Button
+            text={'Lets Go !'}
+            styles={{backgroundColor: Colors.Dark_Blue, marginTop: 10}}
+            onPress={() => navigation.navigate('CreatePassword')}
+          />
+        </ScrollView>
       </View>
     </View>
   );

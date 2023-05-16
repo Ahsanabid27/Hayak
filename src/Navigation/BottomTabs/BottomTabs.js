@@ -5,10 +5,17 @@ import {Colors} from '../../Config/Colors';
 import {useTranslation} from 'react-i18next';
 import {useSelector} from 'react-redux';
 import Home from '../../Screens/home/Home';
-import {home, support, investment, account} from '../../Components/Assets';
+import {
+  home,
+  support,
+  investment,
+  account,
+  wallet,
+} from '../../Components/Assets';
 import Account from '../../Screens/account/Account';
 import Support from '../../Screens/support/Support';
 import Investment from '../../Screens/investment/Investment';
+import Wallet from '../../Screens/wallet/Wallet';
 
 const BottomTabs = () => {
   const BottomTab = createBottomTabNavigator();
@@ -75,6 +82,24 @@ const BottomTabs = () => {
           tabBarIcon: ({color, size}) => (
             <Image
               source={investment}
+              style={{
+                tintColor: color,
+                width: 25,
+                height: 25,
+              }}
+              resizeMode={'contain'}
+            />
+          ),
+        }}
+      />
+       <BottomTab.Screen
+        name="Wallet"
+        component={Wallet}
+        options={{
+          tabBarLabel: t('Wallet'),
+          tabBarIcon: ({color, size}) => (
+            <Image
+              source={wallet}
               style={{
                 tintColor: color,
                 width: 25,
